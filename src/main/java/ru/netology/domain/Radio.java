@@ -3,7 +3,6 @@ package ru.netology.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -20,7 +19,6 @@ public class Radio {
     public void setCurrentStation(int setCurrentStation) {
         maxStation = setNumOfStations - 1;
         if ((setCurrentStation <= maxStation) && (setCurrentStation >= minStation)) {
-
             this.currentStation = setCurrentStation;
         }
         return;
@@ -46,7 +44,7 @@ public class Radio {
         return;
     }
 
-    public void setCurrentVolume (int currentVolume){
+    public void setCurrentVolume(int currentVolume) {
         this.currentVolume = currentVolume;
     }
 
