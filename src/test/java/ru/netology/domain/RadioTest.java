@@ -17,6 +17,17 @@ class RadioTest {
     }
 
     @Test
+    public void setNewStation90 (){
+        Radio radio = new Radio();
+        radio.setNumOfStations(90);
+        radio.setCurrentStation(80);
+        int expected = 80;
+        int actual = radio.getCurrentStation();
+        assertEquals( expected, actual);
+        System.out.println("expected = " + expected + " and" + " actual = " + actual);
+    }
+
+    @Test
     public void ifNewStationIsOutOfRangeAbove (){
         Radio radio = new Radio();
         radio.setCurrentStation(11);
@@ -101,9 +112,9 @@ class RadioTest {
     @Test
     public void increaseIfVolumeIsAlready10 (){
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.volumeUp();
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
         assertEquals( expected, actual);
         System.out.println("expected = " + expected + " and" + " actual = " + actual);
