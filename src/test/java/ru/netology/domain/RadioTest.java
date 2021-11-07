@@ -19,7 +19,7 @@ class RadioTest {
     @Test
     public void setNewStation90 (){
         Radio radio = new Radio();
-        radio.setNumOfStations(90);
+        radio.setSetNumOfStations(90);
         radio.setCurrentStation(80);
         int expected = 80;
         int actual = radio.getCurrentStation();
