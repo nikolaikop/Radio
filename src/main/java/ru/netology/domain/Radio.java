@@ -1,7 +1,7 @@
 package ru.netology.domain;
 
 public class Radio {
-    private int currentStation = 2;
+    private int setCurrentStation = 2;
     private int setNumOfStations = 10;
     private int maxStation;
     private int minStation = 0;
@@ -17,43 +17,40 @@ public class Radio {
     public void setCurrentStation(int setCurrentStation) {
         maxStation = setNumOfStations - 1;
         if ((setCurrentStation <= maxStation) && (setCurrentStation >= minStation)) {
-
-            currentStation = setCurrentStation;
-        } else {
-            this.currentStation = currentStation;
+            this.setCurrentStation = setCurrentStation;
         }
         return;
     }
 
     public void increaseStation() {
         maxStation = setNumOfStations - 1;
-        if (currentStation == maxStation) {
-            currentStation = minStation;
+        if (setCurrentStation == maxStation) {
+            setCurrentStation = minStation;
         } else {
-            currentStation = currentStation + 1;
+            setCurrentStation = setCurrentStation + 1;
         }
         return;
     }
 
     public void decreaseStation() {
         maxStation = setNumOfStations - 1;
-        if (currentStation == minStation) {
-            currentStation = maxStation;
+        if (setCurrentStation == minStation) {
+            setCurrentStation = maxStation;
         } else {
-            currentStation = currentStation - 1;
+            setCurrentStation = setCurrentStation - 1;
         }
         return;
     }
 
     public int getCurrentStation() {
-        return currentStation;
+        return setCurrentStation;
     }
 
     public void setCurrentVolume (int currentVolume){
         this.currentVolume = currentVolume;
     }
 
-    public void volumeUp(/*int setVolume*/) {
+    public void volumeUp() {
         this.currentVolume = currentVolume;
         if (currentVolume != maxVolume) {
             currentVolume = currentVolume + 1;
@@ -61,7 +58,7 @@ public class Radio {
         return;
     }
 
-    public void volumeDown(/*int setVolume*/) {
+    public void volumeDown() {
         this.currentVolume = currentVolume;
         if (currentVolume != minVolume) {
             currentVolume = currentVolume - 1;
