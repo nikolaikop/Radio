@@ -9,6 +9,8 @@ public class Radio {
     private int maxVolume = 100;
     private int minVolume = 0;
 
+    public void setNumOfStations (){
+    }
 
     public void setNumOfStations (int setNumOfStations){
         this.setNumOfStations = setNumOfStations;
