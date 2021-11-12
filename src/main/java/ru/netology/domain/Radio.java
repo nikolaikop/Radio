@@ -44,10 +44,6 @@ public class Radio {
         return;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
-    }
-
     public void volumeUp() {
         this.currentVolume = currentVolume;
         if (currentVolume != maxVolume) {
