@@ -18,8 +18,7 @@ class RadioTest {
 
     @Test
     public void setNewStation90 (){
-        Radio radio = new Radio();
-        radio.setNumOfStations(90);
+        Radio radio = new Radio(90);
         radio.setCurrentStation(80);
         int expected = 80;
         int actual = radio.getCurrentStation();
@@ -110,10 +109,17 @@ class RadioTest {
     }
 
     @Test
-    public void increaseIfVolumeIsAlready10 (){
-        Radio radio = new Radio();
-        radio.setCurrentVolume(100);
-        radio.volumeUp();
+    public void increaseIfVolumeIsAlready100 (){
+        Radio radio = new Radio((short)100);
+        int expected = 100;
+        int actual = radio.getCurrentVolume();
+        assertEquals( expected, actual);
+        System.out.println("expected = " + expected + " and" + " actual = " + actual);
+    }
+
+    @Test
+    public void increaseIfVolumeIsOver100 (){
+        Radio radio = new Radio((short)101);
         int expected = 100;
         int actual = radio.getCurrentVolume();
         assertEquals( expected, actual);
@@ -132,12 +138,30 @@ class RadioTest {
 
     @Test
     public void decreaseIfVolumeIsAlready0 (){
-        Radio radio = new Radio();
-        radio.setCurrentVolume(0);
-        radio.volumeDown();
+        Radio radio = new Radio((short)0);
         int expected = 0;
         int actual = radio.getCurrentVolume();
         assertEquals( expected, actual);
         System.out.println("expected = " + expected + " and" + " actual = " + actual);
     }
+
+    @Test
+    public void decreaseIfVolumeBelow0 (){
+        Radio radio = new Radio((short)-1);
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        assertEquals( expected, actual);
+        System.out.println("expected = " + expected + " and" + " actual = " + actual);
+    }
+
+    @Test
+    public void ifCurrentVolumeIsAlreadyACurrentVolume (){
+        Radio radio = new Radio((short)2);
+        radio.volumeUp();
+        int expected = 3;
+        int actual = radio.getCurrentVolume();
+        assertEquals( expected, actual);
+        System.out.println("expected = " + expected + " and" + " actual = " + actual);
+    }
+
 }

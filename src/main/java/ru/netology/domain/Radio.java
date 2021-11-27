@@ -5,9 +5,26 @@ public class Radio {
     private int numOfStations = 10;
     private int maxStation;
     private int minStation = 0;
-    private int currentVolume = 2;
-    private int maxVolume = 100;
-    private int minVolume = 0;
+    private short currentVolume = 2;
+    private short maxVolume = 100;
+    private short minVolume = 0;
+
+    public Radio() {
+    }
+
+    public Radio(short currentVolume) {
+        if (currentVolume >= maxVolume) {
+            this.currentVolume = maxVolume;
+        }
+        else if (currentVolume <= minVolume) {
+            this.currentVolume = minVolume;
+        }
+        else this.currentVolume = currentVolume;
+    }
+
+    public Radio(int numOfStations) {
+        setNumOfStations(numOfStations);
+    }
 
     public void setCurrentStation(int currentStation) {
         maxStation = numOfStations - 1;
@@ -52,7 +69,7 @@ public class Radio {
         return numOfStations;
     }
 
-    public void setMaxStation (int maxStation){
+    public void setMaxStation (short maxStation){
         this.maxStation = maxStation;
     }
 
@@ -60,7 +77,7 @@ public class Radio {
         return maxStation;
     }
 
-    public void setMinStation (int minStation){
+    public void setMinStation (short minStation){
         this.minStation = minStation;
     }
 
@@ -68,23 +85,19 @@ public class Radio {
         return minStation;
     }
 
-    public void setCurrentVolume (int currentVolume){
-        this.currentVolume = currentVolume;
-    }
-
     public void volumeUp() {
         this.currentVolume = currentVolume;
-        if (currentVolume != maxVolume) {
-            currentVolume = currentVolume + 1;
-        }
+        //if (currentVolume != maxVolume) {
+            currentVolume = (short) (currentVolume + 1);
+        //}
         return;
     }
 
     public void volumeDown() {
         this.currentVolume = currentVolume;
-        if (currentVolume != minVolume) {
-            currentVolume = currentVolume - 1;
-        }
+        //if (currentVolume != minVolume) {
+        currentVolume = (short) (currentVolume - 1);
+    //}
         return;
     }
 
@@ -92,7 +105,7 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setMaxVolume (int maxVolume){
+    public void setMaxVolume (short maxVolume){
         this.maxVolume = maxVolume;
     }
 
@@ -100,7 +113,7 @@ public class Radio {
         return maxVolume;
     }
 
-    public void setMinVolume (int minVolume){
+    public void setMinVolume (short minVolume){
         this.minVolume = minVolume;
     }
 
